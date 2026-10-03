@@ -37,6 +37,12 @@ dependencies:
   path_provider: ^2.1.0
   path: ^1.9.0
 
+  # Audio & Voice
+  flutter_tts: ^4.1.0
+  speech_to_text: ^6.6.2
+  whisper_flutter_new: ^0.0.1
+  record: ^5.1.0
+
   # Utilities
   uuid: ^4.4.0
   intl: ^0.19.0
