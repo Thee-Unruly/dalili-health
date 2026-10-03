@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../services/triage_service.dart';
+import '../../../services/denizen_voice_session.dart';
 import 'widgets/source_card.dart';
 import 'widgets/result_card.dart';
 import 'widgets/status_strip.dart';
@@ -42,6 +43,7 @@ class _TriageScreenState extends State<TriageScreen> {
   TriageView? _view;
   String? _error;
   Duration? _lastLatency;
+  final DenizenVoiceSession _voiceSession = DenizenVoiceSession();
 
   /// Text submitted for the current case, kept so follow-up answers can be
   /// appended to it.
@@ -52,6 +54,30 @@ class _TriageScreenState extends State<TriageScreen> {
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  void _handleVoiceInput() async {
+    setState(() => _phase = _Phase.loading);
+    try {
+      await _voiceSession.startListening(
+        onResult: (text, isFinal) {
+          if (isFinal) {
+            _controller.text = text;
+            _run(text);
+          }
+        },
+        onListeningChanged: (listening) {
+          setState(() {
+            if (!listening) _phase = _Phase.idle;
+          });
+        },
+      );
+    } catch (e) {
+      setState(() {
+        _error = e.toString();
+        _phase = _Phase.error;
+      });
+    }
   }
 
   Future<void> _run(String text) async {
@@ -143,9 +169,9 @@ class _TriageScreenState extends State<TriageScreen> {
                       style: OutlinedButton.styleFrom(
                         minimumSize: const Size(48, 56),
                       ),
-                      onPressed: null,
-                      icon: const Icon(Icons.mic_off),
-                      label: const Text('Voice (coming soon)'),
+                      onPressed: busy ? null : _handleVoiceInput,
+                      icon: const Icon(Icons.mic),
+                      label: const Text('Voice'),
                     ),
                   ],
                 ),
