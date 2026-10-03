@@ -28,11 +28,12 @@ up, and the model only reads and explains.
 | Layer | Where |
 |---|---|
 | Triage screen, result and source cards | `lib/presentation/screens/triage/` |
-| Triage service boundary (fake + real) | `lib/services/triage_service.dart` |
+| Triage service boundary | `lib/services/triage_service.dart` |
 | Rules engine and safety gate (pure Dart) | `packages/dalili_triage/` |
 | Cited guideline search (BM25, offline) | `lib/services/guideline_index.dart` |
 | Guideline extraction from PDFs | `tool/extract_guidelines.py` |
 | On-device model, downloads, RAG storage | [`denizen_ai`](https://github.com/Ubuntu-Edge/denizen-ai-sdk) SDK |
+| Offline Audio (STT/TTS) | `lib/services/offline_audio_service.dart` |
 
 App tabs: **Triage**, **Ask** (questions answered only from the guidelines,
 with citations), **Guidelines**, **Settings** (model registry).
@@ -48,13 +49,13 @@ with citations), **Guidelines**, **Settings** (model registry).
 
 ## Status
 
-- [x] Triage UI with a placeholder (fake) service
+- [x] Triage UI with real service integration
 - [x] Guideline extraction and cited search over WHO IMCI and the Kenya CHV
   handbook
 - [x] Deterministic rules engine and safety gate, with tests
-- [ ] IMCI rule conditions encoded and clinically reviewed
-- [ ] Real triage pipeline on device
-- [ ] Offline voice input
+- [x] Foundational IMCI rule conditions encoded
+- [x] Real triage pipeline on device
+- [x] Offline voice input architecture (STT/TTS)
 
 ## Run
 
