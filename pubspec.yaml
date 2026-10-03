@@ -1,0 +1,88 @@
+name: dalili_health
+description: Offline decision support for community health workers (Dalili).
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
+  provider: ^6.1.5+1
+
+  # Navigation
+  go_router: ^14.0.0
+
+  # Document Management
+  file_picker: ^8.0.0
+  archive: ^3.6.1
+  xml: ^6.5.0
+
+  # PDF Viewing & Text Extraction
+  syncfusion_flutter_pdfviewer: ^27.1.57
+  syncfusion_flutter_pdf: ^27.1.57
+
+  # Local Storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  shared_preferences: ^2.3.2
+
+  # File System
+  path_provider: ^2.1.0
+  path: ^1.9.0
+
+  # Utilities
+  uuid: ^4.4.0
+  intl: ^0.19.0
+  wakelock_plus: ^1.2.8
+  # Denizen AI SDK (Offline AI Engine)
+  denizen_ai:
+    path: ..
+  dalili_triage:
+    path: packages/dalili_triage
+
+  # UI
+  google_fonts: ^6.2.1
+  flutter_svg: ^2.0.10+1
+  shimmer: ^3.0.0
+  flutter_tabler_icons: ^1.43.0
+
+  # Networking (for future model downloads)
+  dio: ^5.7.0
+
+  # Permissions (Android)
+  permission_handler: ^11.3.1
+
+  # Local Database (future vector/document indexing)
+  sqflite: ^2.4.0
+  url_launcher: ^6.3.2
+  webview_flutter: ^4.13.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+  build_runner: ^2.4.11
+
+  riverpod_generator: ^2.4.0
+  riverpod_lint: ^2.3.10
+  custom_lint: ^0.6.4
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/models/
+    - assets/guidelines/
+
+
+
+

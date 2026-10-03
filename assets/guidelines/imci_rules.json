@@ -1,0 +1,82 @@
+[
+  {
+    "id": "IMCI-001",
+    "priority": 10,
+    "conditions": {
+      "all_of": [
+        { "field": "lethargicOrUnconscious", "is": true }
+      ]
+    },
+    "outcome": "urgentReferral",
+    "sourceDoc": "WHO IMCI Chartbook",
+    "sourcePage": 5,
+    "reason": "General Danger Sign: Lethargic or unconscious"
+  },
+  {
+    "id": "IMCI-002",
+    "priority": 20,
+    "conditions": {
+      "all_of": [
+        { "field": "convulsions", "is": true }
+      ]
+    },
+    "outcome": "urgentReferral",
+    "sourceDoc": "WHO IMCI Chartbook",
+    "sourcePage": 5,
+    "reason": "General Danger Sign: Convulsions"
+  },
+  {
+    "id": "IMCI-003",
+    "priority": 30,
+    "conditions": {
+      "all_of": [
+        { "field": "unableToDrinkOrBreastfeed", "is": true }
+      ]
+    },
+    "outcome": "urgentReferral",
+    "sourceDoc": "WHO IMCI Chartbook",
+    "sourcePage": 5,
+    "reason": "General Danger Sign: Unable to drink or breastfeed"
+  },
+  {
+    "id": "IMCI-004",
+    "priority": 40,
+    "conditions": {
+      "all_of": [
+        { "field": "breathsPerMinute", "gte": 50 },
+        { "field": "ageMonths", "gte": 2 },
+        { "field": "ageMonths", "lte": 12 }
+      ]
+    },
+    "outcome": "referOrTreatAtClinic",
+    "sourceDoc": "WHO IMCI Chartbook",
+    "sourcePage": 8,
+    "reason": "Fast breathing for 2-12 months"
+  },
+  {
+    "id": "IMCI-005",
+    "priority": 50,
+    "conditions": {
+      "all_of": [
+        { "field": "chestIndrawing", "is": true }
+      ]
+    },
+    "outcome": "urgentReferral",
+    "sourceDoc": "WHO IMCI Chartbook",
+    "sourcePage": 8,
+    "reason": "Severe Pneumonia sign: Chest indrawing"
+  },
+  {
+    "id": "IMCI-006",
+    "priority": 60,
+    "conditions": {
+      "all_of": [
+        { "field": "diarrhoeaDays", "gte": 14 }
+      ]
+    },
+    "outcome": "referOrTreatAtClinic",
+    "sourceDoc": "WHO IMCI Chartbook",
+    "sourcePage": 12,
+    "reason": "Persistent diarrhoea"
+  }
+]

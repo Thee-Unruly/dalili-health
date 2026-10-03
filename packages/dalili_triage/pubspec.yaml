@@ -1,0 +1,14 @@
+name: dalili_triage
+description: >-
+  Deterministic triage core for Dalili. Pure Dart: no Flutter, no model, no
+  database. Clinical rules and follow-up questions are data (JSON) supplied by
+  the caller and loaded at runtime.
+publish_to: none
+version: 0.1.0
+
+environment:
+  sdk: ^3.9.0
+
+# Vendored from denizen/dalili/app (triage core only). Runs with `dart test`.
+dev_dependencies:
+  test: ^1.26.0
