@@ -243,7 +243,7 @@ class DocumentProvider with ChangeNotifier {
   Future<void> pickAndUploadDocument() async {
     _error = null;
 
-    final result = await FilePicker.platform.pickFiles(
+    final result = await FilePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['pdf', 'docx', 'txt'],
       withData: false,

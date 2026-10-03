@@ -60,11 +60,9 @@ class _TriageScreenState extends State<TriageScreen> {
     setState(() => _phase = _Phase.loading);
     try {
       await _voiceSession.startListening(
-        onResult: (text, isFinal) {
-          if (isFinal) {
-            _controller.text = text;
-            _run(text);
-          }
+        onResult: (text) {
+          _controller.text = text;
+          _run(text);
         },
         onListeningChanged: (listening) {
           setState(() {

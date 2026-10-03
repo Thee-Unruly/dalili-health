@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:denizen_ai/denizen_ai.dart';
+import 'package:denizen_ai/denizen_ai.dart' as denizen;
 import 'package:flutter/services.dart';
 
 import 'package:dalili_triage/triage/rules_engine.dart';
@@ -9,6 +9,7 @@ import 'package:dalili_triage/triage/symptom_set.dart';
 import 'package:dalili_triage/triage/triage_result.dart';
 import 'guideline_index.dart';
 import 'triage_service.dart';
+import 'offline_ai_service.dart' as local_ai;
 
 /// The real on-device triage pipeline for Dalili.
 ///
@@ -18,7 +19,7 @@ import 'triage_service.dart';
 /// 3. GuidelineIndex finds relevant passage for RuleID/Outcome.
 /// 4. LLM explains the result using the passage.
 class RealTriageService implements TriageService {
-  final OfflineAIService aiService;
+  final local_ai.OfflineAIService aiService;
   final GuidelineIndex guidelineIndex;
 
   RealTriageService({

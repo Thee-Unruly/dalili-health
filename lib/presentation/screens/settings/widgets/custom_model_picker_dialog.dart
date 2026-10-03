@@ -27,7 +27,7 @@ class _CustomModelPickerDialogState extends State<CustomModelPickerDialog> {
     try {
       setState(() => _isPicking = true);
 
-      final result = await FilePicker.platform.pickFiles(
+      final result = await FilePicker.pickFiles(
         type: FileType.any,
         dialogTitle: 'Select GGUF Model File',
       );
