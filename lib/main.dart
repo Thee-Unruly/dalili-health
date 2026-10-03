@@ -8,7 +8,8 @@ import 'providers/session_provider.dart';
 import 'providers/document_provider.dart';
 import 'providers/settings_provider.dart';
 import 'providers/offline_model_provider.dart';
-import 'services/offline_ai_service.dart';
+import 'services/offline_ai_service.dart' as local_ai;
+import 'package:denizen_ai/denizen_ai.dart' as denizen;
 import 'services/guideline_index.dart';
 import 'services/real_triage_service.dart';
 import 'services/triage_service.dart';
@@ -34,7 +35,7 @@ void main() async {
   await sessionProvider.init();
 
   // 5. Initialize Triage Infrastructure
-  final aiService = OfflineAIService.instance;
+  final aiService = local_ai.OfflineAIService.instance;
   await aiService.initialize();
   final guidelineIndex = await GuidelineIndex.loadFromAssets();
   final triageService = RealTriageService(

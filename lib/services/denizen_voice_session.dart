@@ -41,7 +41,9 @@ class DenizenVoiceSession {
   }) async {
     _isRecording = true;
     await OfflineAudioService.instance.startListening(
-      onResult: (text, isFinal) => onResult(text),
+      onResult: (text, isFinal) {
+        if (isFinal) onResult(text);
+      },
       initialText: initialText,
       onListeningChanged: (listening) {
         _isRecording = listening;
